@@ -11,4 +11,4 @@ def solution(numbers, hand):
     return answer
 
 
-solution([1,2,3,4], "right")
+print(solution([1,2,3,4], "right"))
