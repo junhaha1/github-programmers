@@ -4,5 +4,11 @@ def solution(numbers, hand):
     
     left = [0, 3]
     right = [2, 3]
+
+    for i in numbers:
+        print(i)
     
     return answer
+
+
+solution([1,2,3,4], "right")
