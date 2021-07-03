@@ -4,7 +4,7 @@ def solution(numbers, hand):
     answer = ''
     keyboard = [[1, 2, 3], [4, 5, 6], [7, 8, 9], ['*', 0, '#']]
     
-    left = [[0, 3]]
+    left = [[3, 0]]
     right = [[3, 2]]
 
     #좌표상 거리 계산으로 접근
