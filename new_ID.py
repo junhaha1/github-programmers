@@ -1,5 +1,5 @@
 def solution(new_id):
-    
+
     answer = ''
 
     str_list1 = [chr(i) for i in range(97, 123)]
@@ -7,49 +7,41 @@ def solution(new_id):
     str_list3 = [str(i) for i in range(10)]
     
     #1번째
-    answer = new_id.lower()
+    new_id = new_id.lower()
 
     #2번째
-    temp1 = ''
-    for i in answer:
+    for i in new_id:
         if (i in str_list1) or (i in str_list2) or (i in str_list3):
-            temp1 += i
+            answer += i
 
     #3번째 
-    temp = ''
-    temp2 = ''
-    for i in temp1:
-        if temp2 == '.' and i == '.':
-            temp2 = i
-            continue
-        temp += i
-        temp2 = i
+    while '..' in answer:
+        answer.replace('..', '.')
     
     #4번째 
-    if temp[0] == '.':
-        temp = temp[1:]
-    elif temp[-1] == '.':
-        temp = temp[0:-1]
-    elif temp[0] == '.' and temp[-1] == '.':
-        temp = temp[1:-1]
+    if answer[0] == '.':
+        if len(answer) > 1:
+            answer = answer[1:]
+        else:
+            answer ='.'
+    if answer[-1] == '.':
+        answer = answer[:-1]
 
     #5단계
-    if temp == '':
-        temp += 'a'
+    if answer == '':
+        answer += 'a'
 
     #6단계
-    if len(temp) > 15:
-        temp = temp[0:15]
+    if len(answer) > 15:
+        answer = answer[:15]
 
-    if temp[-1] == '.':
-        temp = temp[0:-1]
+    if answer[-1] == '.':
+        answer = answer[0:-1]
 
     #7단계
-    if len(temp) < 3:
-        while True:
-            temp += temp[-1]
-            if len(temp) >= 3:
-                break
-    return temp
+    while len(answer) < 3:
+        answer += answer[-1]
+
+    return answer
 
 print(solution("abcdefghijklmn.p"))
