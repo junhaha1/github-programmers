@@ -1,3 +1,5 @@
+import math
+
 def solution(numbers, hand):
     answer = ''
     keyboard = [[1, 2, 3], [4, 5, 6], [7, 8, 9], ['*', 0, '#']]
@@ -17,8 +19,21 @@ def solution(numbers, hand):
             right = list(temp_position)
             answer += 'R'
         elif i in  [2, 5, 8, 0]:
-            print(temp_position)
-    
+            left_p = math.sqrt((left[0][0] - temp_position[0][0]) ** 2 + (left[0][1] - temp_position[0][1]) ** 2)
+            right_p = math.sqrt((right[0][0] - temp_position[0][0]) ** 2 + (right[0][1] - temp_position[0][1]) ** 2)
+
+            if left_p > right_p:
+                right = list(temp_position)
+                answer += 'R'
+            elif left_p < right_p:
+                left = list(temp_position)
+                answer += 'L'
+            else:
+                if hand == "right":
+                    right = list(temp_position)
+                elif hand == "left":
+                    left = list(temp_position)
+                answer += hand[0].upper()
     return answer
 
 
