@@ -1,9 +1,12 @@
-from itertools import combinations
-
 def solution(d, budget):
     answer = 0
+    if sum(d) > budget:
+        pass
+            
 
-    # 조합 
-    newd = list(combinations(d, 3))
-
+    elif sum(d) <= budget:
+        answer = len(d)
+    
     return answer
+
+print(solution([2,2,3,3], 10))
