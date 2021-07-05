@@ -1,12 +1,13 @@
-from itertools import combinations
-
-items = [1,3,2,5,4]
+items = [2,2,3,3]	
 budget = 10
 
-new = []
+new = 0
+count = 0
 
-if sum(items) > budget:
-    for i in range(1, len(items)):
-        new = ([i for i in list(combinations(items, i)) if sum(i) <= budget])
-        
-print(len(new[0]))
+for i in sorted(items):
+    new += i
+    if new > budget:
+        break
+    count += 1
+
+print(count)
