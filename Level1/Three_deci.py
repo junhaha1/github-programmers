@@ -1,3 +1,4 @@
+#3진법 뒤집기
 def solution(n):
     answer = []
     result = 0
